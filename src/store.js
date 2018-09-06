@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     isLogin: false,
+    tabNum: 0
   },
   mutations: {
     login (state) {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     logout (state) {
       state.isLogin = false
     },
+    changeTabNum (state, num) {
+      state.tabNum = num
+    }
   },
   actions: {
 

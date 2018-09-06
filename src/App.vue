@@ -18,7 +18,33 @@
         </template>
       </div>
     </div>
+    <mt-navbar v-model="localTabNum" style="background-color: #f2f2f2">
+      <template v-for="(val, index) in tabs">
+        <mt-tab-item :key="index" :id="index">{{ val }}</mt-tab-item>
+      </template>
+    </mt-navbar>
+    <mt-search
+      v-model="searchText"
+      cancel-text="取消"
+      placeholder="请输入小说名字"
+      style="height: 100%">
+    </mt-search>
+
     <router-view/>
+
+    <div class="main-footer">
+      <el-row type="flex" class="row-bg" justify="space-around">
+        <el-col :span="6">
+          <a href="/">收藏</a>
+        </el-col>
+        <el-col :span="6">
+          <a href="/">书架</a>
+        </el-col>
+        <el-col :span="6">
+          <a href="/" style="color: #F56C6C">报错</a>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -27,6 +53,9 @@ export default {
   name: 'app',
   data: function () {
     return {
+      localTabNum: 0,
+      tabs: ['分类', '全本', '书架'],
+      searchText: '',
       
     }
   },
@@ -38,10 +67,21 @@ export default {
     logout: function () {
       this.$store.commit('logout')
     },
+    register: function () {
+      
+    },
+  },
+  watch: {
+    localTabNum: function (val) {
+      this.$store.commit('changeTabNum', val)
+    }
   },
   computed: {
     isLogin () {
       return this.$store.state.isLogin
+    }, 
+    tabNum () {
+      return this.$store.state.tabNum
     }
   },
   mounted: function () {
