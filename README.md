@@ -1,4 +1,4 @@
-# front
+# lulu-novel-front
 
 ## Project setup
 ```
