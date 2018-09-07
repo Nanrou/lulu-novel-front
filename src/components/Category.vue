@@ -6,7 +6,7 @@
     <div class="bookbox" v-for="(c, index) in pageContent" :key="index">
       <a href="/">
         <div style="100px">
-          <img :src="titlePageList[index]"/>
+          <img :src="randomImg()"/>
           <h4>{{ c.title }}</h4>
           <p>作者: &nbsp; {{ c.author }}</p>
           <p>更新至: &nbsp; <b>{{ c.lastestChapter }}</b></p>
@@ -41,24 +41,23 @@ export default {
     return {
       perCount: 5, // 每页条数
       currentPage: 1, // 当前页码
+      randomImg: () => {
+        return require('../assets/images/titlePage/' + Math.floor(Math.random() * 19)  + '.jpg')
+      }
     }
   },
   methods: {
   },
   computed: {
-    titlePageList () {
-      let ll = []
-      for (let i=0; i < 20; i++) {
-        ll.push(require('../assets/images/titlePage/' + Math.floor(Math.random() * 19)  + '.jpg'))
-      }
-      // eslint-disable-next-line
-      if (this.currentPage) {} // 为了刷新，所以带上这个属性
-      return ll
-    },
     pageContent () {
       return this.categoryList.slice((this.currentPage - 1) * this.perCount, this.currentPage * this.perCount)
     }
   },
+  mounted: function () {
+  },
+
+  beforeDestroy: function () {
+  }
 }
 </script>
 
