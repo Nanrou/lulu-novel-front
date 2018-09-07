@@ -7,6 +7,7 @@ import {
     Loading,
     Tabs,
     TabPane,
+    Dialog,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -15,6 +16,7 @@ Vue.use(Col)
 Vue.use(Pagination)
 Vue.use(Tabs)
 Vue.use(TabPane)
+Vue.use(Dialog)
 
 Vue.use(Loading.directive);
 

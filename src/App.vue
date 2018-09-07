@@ -18,22 +18,13 @@
         </template>
       </div>
     </div>
-    <mt-navbar v-model="localTabNum" style="background-color: #f2f2f2">
-      <template v-for="(val, index) in tabs">
-        <mt-tab-item :key="index" :id="index">{{ val }}</mt-tab-item>
-      </template>
-    </mt-navbar>
-    <mt-search
-      v-model="searchText"
-      cancel-text="取消"
-      placeholder="请输入小说名字"
-      style="height: 100%">
-    </mt-search>
 
     <router-view/>
 
     <div class="main-footer">
-      <el-row type="flex" class="row-bg" justify="space-around">
+      <p>© 2018 露露&阿毛出品</p>
+      <!--
+      <el-row type="flex" justify="space-around">
         <el-col :span="6">
           <a href="/">收藏</a>
         </el-col>
@@ -44,6 +35,7 @@
           <a href="/" style="color: #F56C6C">报错</a>
         </el-col>
       </el-row>
+      -->
     </div>
   </div>
 </template>
@@ -53,10 +45,6 @@ export default {
   name: 'app',
   data: function () {
     return {
-      localTabNum: 0,
-      tabs: ['分类', '全本', '书架'],
-      searchText: '',
-      
     }
   },
   methods: {
@@ -72,17 +60,11 @@ export default {
     },
   },
   watch: {
-    localTabNum: function (val) {
-      this.$store.commit('changeTabNum', val)
-    }
   },
   computed: {
     isLogin () {
       return this.$store.state.isLogin
     }, 
-    tabNum () {
-      return this.$store.state.tabNum
-    }
   },
   mounted: function () {
   }
@@ -142,4 +124,15 @@ a {
   }
 }
 
+.main-footer {
+  margin-top: 12px;
+  background: #ECF0F0;
+  padding: 10px 0 0;
+  border-top: 1px solid #f1f1f1;
+  text-align: center;
+  padding-bottom: 50px;
+  a {
+    &:link, &:hover, &:visited, &:active {color: #606266}
+  }
+}
 </style>
