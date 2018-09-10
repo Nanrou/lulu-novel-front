@@ -3,15 +3,15 @@
     <div class="category-div-title">
       好看的{{ category.label }}小说
     </div>
-    <div class="bookbox" v-for="(c, index) in pageContent" :key="index">
-      <a :href="'/book/' + c.bid">
+    <div class="book-box" v-for="(c, index) in pageContent" :key="index">
+      <router-link :to="'/book/' + c.bid">
         <div style="100px">
           <img :src="randomImg()"/>
           <h4>{{ c.title }}</h4>
           <p>作者: &nbsp; {{ c.author }}</p>
           <p>更新至: &nbsp; <b>{{ c.lastestChapter }}</b></p>
         </div>
-      </a>
+      </router-link>
     </div>
     <div class="pagination-div">
       <el-pagination
@@ -72,7 +72,7 @@ export default {
   text-align: center;
 }
 
-.bookbox {
+.book-box {
   overflow: hidden;
   padding: 8px;
   border-bottom: 1px solid #dfdfdf;

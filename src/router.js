@@ -31,6 +31,11 @@ export default new Router({
       component: () => import( './views/Book.vue')
     },
     {
+      path: '/chapters/:bid',  // 想要hash化
+      name: 'chapters',
+      component: () => import( './views/AllChapter.vue')
+    },
+    {
       path: '/chapter/:cid',
       name: 'chapter',
       component: () => import( './views/Chapter.vue')

@@ -2,10 +2,10 @@
   <div id="app">
     <div class="home-header">
       <div class="logo">
-        <a href="/">
+        <router-link to="/">
           <h2>超级</h2>
           <p>m.superxiaoshuo.com</p>
-        </a>
+        </router-link>
       </div>
       <div class="register">
         <template v-if="isLogin">

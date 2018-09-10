@@ -8,6 +8,8 @@ import {
     Tabs,
     TabPane,
     Dialog,
+    Select,
+    Option
 } from 'element-ui'
 
 Vue.use(Button)
@@ -17,6 +19,8 @@ Vue.use(Pagination)
 Vue.use(Tabs)
 Vue.use(TabPane)
 Vue.use(Dialog)
+Vue.use(Select)
+Vue.use(Option)
 
 Vue.use(Loading.directive);
 
