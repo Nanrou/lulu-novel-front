@@ -125,7 +125,6 @@ a {
 }
 
 .main-footer {
-  margin-top: 12px;
   background: #ECF0F0;
   padding: 10px 0 0;
   border-top: 1px solid #f1f1f1;

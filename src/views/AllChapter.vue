@@ -59,20 +59,11 @@ export default {
     this.b = {
       title: 'test',
     }
-    this.allChapter = [
-      {title: '1', cid: 'asbc'},
-      {title: '2', cid: 'asbc'},
-      {title: '3', cid: 'asbc'},
-      {title: '4', cid: 'asbc'},
-      {title: '5', cid: 'asbc'},
-      {title: '6', cid: 'asbc'},
-      {title: '7', cid: 'asbc'},
-      {title: '8', cid: 'asbc'},
-      {title: '9', cid: 'asbc'},
-      {title: '10', cid: 'asbc'},
-      {title: '11', cid: 'asbc'},
-      {title: '12', cid: 'asbc'},
-    ]
+    for (let i=0; i < 20; i++) {
+      this.allChapter.push({
+        title: String(i), cid: String(i)
+      })
+    }
 
     this.chapters = this.allChapter.slice(0, this.pageSize)
 

@@ -15,7 +15,7 @@
         </el-col>
       </el-row>
       <div class="book-btn">
-        <mt-button type="primary" style="width: 100%">开始阅读</mt-button>
+        <mt-button type="primary" style="width: 100%" @click="goToFirstChapter">开始阅读</mt-button>
       </div>
       <div class="book-btn" v-if="record">
         <mt-button type="primary" style="width: 100%">上次读到</mt-button>
@@ -55,6 +55,9 @@ export default {
     }
   },
   methods: {
+    goToFirstChapter: function () {
+      this.$router.push({ name: 'chapter', params: { cid: this.b.firstChapter }})
+    },
     goToChapters: function () {
       this.$router.push({ name: 'chapters', params: { bid: this.b.bid }})
     }
@@ -68,22 +71,15 @@ export default {
       category: 'lingyixuanyi',
       updateTime: '2017-12-14 06:26:00',
       lastestChapter: 'that chapter',
+      firstChapter: 'first',
       remark: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla '
     }
 
-    this.lastestChapterList = [
-      {title: '2222', cid: 'asbc'},
-      {title: '2222', cid: 'asbc'},
-      {title: '2222', cid: 'asbc'},
-      {title: '2222', cid: 'asbc'},
-      {title: '2222', cid: 'asbc'},
-      {title: '2222', cid: 'asbc'},
-      {title: '2222', cid: 'asbc'},
-      {title: '2222', cid: 'asbc'},
-      {title: '2222', cid: 'asbc'},
-      {title: '2222', cid: 'asbc'},
-      {title: '2222', cid: 'asbc'},
-    ]
+    for (let i=0; i < 10; i++) {
+      this.lastestChapterList.push({
+        title: String(i), cid: String(i)
+      })
+    }
 
     if (window.localStorage.getItem('superxiaoshuo-books-record')) {
       let _tmp = JSON.parse(window.localStorage.getItem('superxiaoshuo-books-record')) 
