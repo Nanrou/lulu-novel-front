@@ -9,22 +9,29 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/:category',
+      name: 'category',
+      component: Home
+    },
+    {
       path: '/',
       name: 'home',
       component: Home
     },
+    /*
     {
-      path: '/category',
+      path: '/category/:category',
       name: 'category',
       component: () => import( './views/Category.vue')
     },
+    */
     {
-      path: '/book',
+      path: '/book/:bid',  // 想要hash化
       name: 'book',
       component: () => import( './views/Book.vue')
     },
     {
-      path: '/chapter',
+      path: '/chapter/:cid',
       name: 'chapter',
       component: () => import( './views/Chapter.vue')
     },

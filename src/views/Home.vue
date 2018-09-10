@@ -49,7 +49,7 @@ import categoryComponent from '../components/Category.vue'
 import bookShelfComponent from '../components/BookShelf.vue'
 
 export default {
-  name: 'homeComponent',
+  name: 'home',
   components: {
     categoryComponent,
     bookShelfComponent
@@ -76,11 +76,12 @@ export default {
   methods: {
     changeCategory: function (item) {
       this.category = item
-      this.requestCategory()
+      this.$router.push({ name: 'category', params: { category: item.value }})
+      this.requestCategory(item)
     },
-
     requestCategory: function (item) {
       this.categoryLoading = true
+      console.log(item)
       this.categoryLoading = false
     },
 
@@ -103,18 +104,18 @@ export default {
   },
   mounted: function () {
     this.categoryList = [
-      {author: 'lulu', title: '超脱诸天万界', lastestChapter: 'lastChance'},
-      {author: 'amao', title: '雪中悍刀行', lastestChapter: 'lastChance++'},
-      {author: 'lulu', title: '超脱诸天万界', lastestChapter: 'lastChance'},
-      {author: 'amao', title: '雪中悍刀行', lastestChapter: 'lastChance++'},
-      {author: 'lulu', title: '超脱诸天万界', lastestChapter: 'lastChance'},
-      {author: 'amao', title: '雪中悍刀行', lastestChapter: 'lastChance++'},
-      {author: 'lulu', title: '超脱诸天万界', lastestChapter: 'lastChance'},
-      {author: 'amao', title: '雪中悍刀行', lastestChapter: 'lastChance++'},
-      {author: 'lulu', title: '超脱诸天万界', lastestChapter: 'lastChance'},
-      {author: 'amao', title: '雪中悍刀行', lastestChapter: 'lastChance++'},
-      {author: 'lulu', title: '超脱诸天万界', lastestChapter: 'lastChance'},
-      {author: 'amao', title: '雪中悍刀行', lastestChapter: 'lastChance++'},
+      {bid: 111, author: 'lulu', title: '超脱诸天万界', lastestChapter: 'lastChance'},
+      {bid: 111, author: 'amao', title: '雪中悍刀行', lastestChapter: 'lastChance++'},
+      {bid: 111, author: 'lulu', title: '超脱诸天万界', lastestChapter: 'lastChance'},
+      {bid: 111, author: 'amao', title: '雪中悍刀行', lastestChapter: 'lastChance++'},
+      {bid: 111, author: 'lulu', title: '超脱诸天万界', lastestChapter: 'lastChance'},
+      {bid: 111, author: 'amao', title: '雪中悍刀行', lastestChapter: 'lastChance++'},
+      {bid: 111, author: 'lulu', title: '超脱诸天万界', lastestChapter: 'lastChance'},
+      {bid: 111, author: 'amao', title: '雪中悍刀行', lastestChapter: 'lastChance++'},
+      {bid: 111, author: 'lulu', title: '超脱诸天万界', lastestChapter: 'lastChance'},
+      {bid: 111, author: 'amao', title: '雪中悍刀行', lastestChapter: 'lastChance++'},
+      {bid: 111, author: 'lulu', title: '超脱诸天万界', lastestChapter: 'lastChance'},
+      {bid: 111, author: 'amao', title: '雪中悍刀行', lastestChapter: 'lastChance++'},
     ]
   }
 }

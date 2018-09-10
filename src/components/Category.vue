@@ -4,7 +4,7 @@
       好看的{{ category.label }}小说
     </div>
     <div class="bookbox" v-for="(c, index) in pageContent" :key="index">
-      <a href="/">
+      <a :href="'/book/' + c.bid">
         <div style="100px">
           <img :src="randomImg()"/>
           <h4>{{ c.title }}</h4>
@@ -47,6 +47,7 @@ export default {
     }
   },
   methods: {
+    // 增量请求
   },
   computed: {
     pageContent () {
