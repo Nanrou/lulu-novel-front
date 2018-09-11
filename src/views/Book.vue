@@ -70,7 +70,7 @@ export default {
       status: 0,
       category: 'lingyixuanyi',
       updateTime: '2017-12-14 06:26:00',
-      lastestChapter: 'that chapter',
+      latestChapter: 'that chapter',
       firstChapter: 'first',
       remark: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla '
     }
